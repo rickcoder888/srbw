@@ -1,0 +1,60 @@
+$bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
+@import "~bootstrap-icons/font/bootstrap-icons";
+
+// fixes a flashing issue when changing themes
+.nav-item .nav-link.active, table {
+    //transition: all ease .5s;
+}
+
+// .prevent-validation class
+.prevent-validation {
+    &:valid, &.is-valid {
+        padding: $input-padding-y $input-padding-x !important;
+        border-color: $input-border-color !important;
+        background-image: none !important;
+    }
+}
+
+select.prevent-validation {
+    &:valid, &.is-valid {
+        background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23343a40%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M2 5l6 6 6-6%27/%3e%3c/svg%3e") !important;
+
+        &:focus {
+            box-shadow: $form-select-focus-box-shadow !important;
+        }
+    }
+}
+
+.form-check.prevent-validation .form-check-input {
+    &:valid, &.is-valid {
+        border: $form-check-input-border !important;
+
+        &:checked {
+            background-color: $form-check-input-checked-bg-color !important;
+            border-color: $form-check-input-checked-border-color !important;
+        }
+
+        & ~ .form-check-label {
+            color: var(--#{$prefix}body-color) !important;
+        }
+    }
+}
+
+// .is-invalid class enforcements
+.was-validated .form-control.is-invalid {
+    border-color: $form-feedback-invalid-color !important;
+
+    background-image: escape-svg($form-feedback-icon-invalid) !important;
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba($form-feedback-invalid-color, .25) !important;
+    }
+}
+
+.disabled.active > .page-link {
+    color: var(--#{$prefix}primary) !important;
+}
+
+.page-link {
+    transition: all .35s;
+}
